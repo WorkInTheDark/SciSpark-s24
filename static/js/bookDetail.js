@@ -345,6 +345,18 @@ function updateProgressBar() {
 
 function showImage() {
     /* isKeyWord = false; */
+    if (currentImageIndex == 1){
+        document.getElementById('prevPageIcon').style.visibility = 'hidden';
+    }
+    else{
+        document.getElementById('prevPageIcon').style.visibility = 'visible';
+    }
+    if (currentImageIndex == totalPages){
+        document.getElementById('nextPageIcon').style.visibility = 'hidden';
+    }
+    else{
+        document.getElementById('nextPageIcon').style.visibility = 'visible';
+    }
     isKnowledge = false;
     const currentImage = document.getElementById("BookImg");
     currentImage.src = `../static/files/books/${bookTitle}/pages/page${currentImageIndex}.jpg`;

@@ -1,0 +1,80 @@
+{
+    "1":{
+        "keyword": "bats",
+        "question": "What is Amara's favorite animal?",
+        "DCI": "",
+        "statement": ""
+    },
+    "3":{
+        "keyword": "wildlife",
+        "question":"Why can't we keep a bat as a pet, even if it's super cute?",
+        "DCI": "Things that people do to live comfortably can affect the world around them. But they can make choices that reduce their impacts on the land, water, air, and other living things.",
+        "statement": "Communicate solutions that will reduce the impact of humans on the land, water, air, and/or other living things in the local environment."
+    },
+    "4":{
+        "keyword": "rescue",
+        "question": "What did the wildlife rescue team do with the bat?",
+        "DCI": "Things that people do to live comfortably can affect the world around them. But they can make choices that reduce their impacts on the land, water, air, and other living things.",
+        "statement": "Communicate solutions that will reduce the impact of humans on the land, water, air, and/or other living things in the local environment."
+    },
+    "7":{
+        "keyword": "nocturnal",
+        "question": "What makes bats different from other animals?",
+        "DCI": "There are many different kinds of living things in any area, and they exist in different places on land and in water.",
+        "statement": "Make observations of plants and animals to compare the diversity of life in different habitats."
+    },
+    "8":{
+        "keyword": "echolocation",
+        "question": "How do bats see in the dark to find their food?",
+        "DCI": "Animals have body parts that capture and convey different kinds of information needed for growth and survival. Animals respond to these inputs with behaviors that help them survive. Plants also respond to some external inputs.",
+        "statement": "Use materials to design a solution to a human problem by mimicking how plants and/or animals use their external parts to help them survive, grow, and meet their needs."
+    },
+    "14":{
+        "keyword": "habitat",
+        "question": "Why do you think the bats are not at the park anymore? What could have happened to their homes?",
+        "DCI": "Things that people do to live comfortably can affect the world around them. But they can make choices that reduce their impacts on the land, water, air, and other living things.",
+        "statement": "Use a model to represent the relationship between the needs of different plants or animals (including humans) and the places they live. "
+    },
+    "16":{
+        "keyword": "endangered",
+        "question": "If you were Amara, what would you do to help bring the bats back to the park?",
+        "DCI": "Things that people do to live comfortably can affect the world around them. But they can make choices that reduce their impacts on the land, water, air, and other living things.",
+        "statement": "Communicate solutions that will reduce the impact of humans on the land, water, air, and/or other living things in the local environment. Ask questions, make observations, and gather information about a situation people want to change to define a simple problem that can be solved through the development of a new or improved object or tool."
+    },
+    "18":{
+        "keyword": "roost",
+        "question": "After Amara finished the magazine, What did Amara decide to do?",
+        "DCI": "Things that people do to live comfortably can affect the world around them. But they can make choices that reduce their impacts on the land, water, air, and other living things.",
+        "statement": "Communicate solutions that will reduce the impact of humans on the land, water, air, and/or other living things in the local environment."
+    },
+    "23":{
+        "keyword": "reserve",
+        "question": "How can we help bats like Amara does?",
+        "DCI": "Things that people do to live comfortably can affect the world around them. But they can make choices that reduce their impacts on the land, water, air, and other living things. ",
+        "statement": "Communicate solutions that will reduce the impact of humans on the land, water, air, and/or other living things in the local environment."
+    },
+    "26":{
+        "keyword": "sanctuary",
+        "question": "Why is it important for the habitat to be ready for the bats?",
+        "DCI": "Human Impacts on Earth Systems ▪ Things that people do to live comfortably can affect the world around them. But they can make choices that reduce their impacts on the land, water, air, and other living things.",
+        "statement": "Communicate solutions that will reduce the impact of humans on the land, water, air, and/or other living things in the local environment."
+    },
+    "28":{
+        "keyword": "rescue",
+        "question": "Who helps Amara build the bat houses?",
+        "DCI": "Things that people do to live comfortably can affect the world around them. But they can make choices that reduce their impacts on the land, water, air, and other living things.",
+        "statement": "Communicate solutions that will reduce the impact of humans on the land, water, air, and/or other living things in the local environment."
+    },
+    "30":{
+        "keyword": "roosted",
+        "question": "What do you think would happen if there were no bats?",
+        "DCI": "Interdependent Relationships in Ecosystems ▪ Plants depend on water and light to grow.  Plants depend on animals for pollination or to move their seeds around.",
+        "statement": "Use a model to represent the relationship between the needs of different plants or animals (including humans) and the places they live."
+    },
+    "34":{
+        "keyword": "home",
+        "question": "What did Amara feel when she finally saw the bats flying in the park?",
+        "DCI": "Human Impacts on Earth Systems ▪ Things that people do to live comfortably can affect the world around them. But they can make choices that reduce their impacts on the land, water, air, and other living things.",
+        "statement": ""
+    }
+}

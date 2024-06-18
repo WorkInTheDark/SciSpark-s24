@@ -183,6 +183,7 @@ The generated question series should be based on the story text, concept word, k
 When the child responds, provide your response to them.
 Your response should include: a judgment of whether the child's answer is correct or incorrect, a friendly, encouraging feedback based on the child's answer, an explanation of the answer to the previous question, and finally transit to the next question if the conversation does not end.
 If the child’s answer is incorrect, use scaffold to inspire their thinking.
+If the child responds nothing, simply reply with something like “It’s okay that you need more time to think" + explanation, or "I didn’t catch you" + repeat the question.
 Keep your response concise, each part should preferably not exceed 100 characters.
 
 For the first question you generate which the conversation starts, please follow this json format:
@@ -196,9 +197,9 @@ The format of your response should follow this json format:
         "judgement": [Judgement of the child's answer: correct/incorrect/partially correct.],
         "feedback": [Your feedback to the child's answer, it should be encouraging regardless of the correctness of the child's answer, such as 'Good job!', 'You are absolutely right', 'That's ok!', etc.],
         "explanation": [An explanation of the previous question with the related knowledge according to the child's answer],
-        "transition": [A transition to a new question or closing the conversation, such as 'Here's a new question:', 'Let's move on reading!', etc.],
+        "transition": [A transition to a new question or closing the conversation, such as 'Here's a new question:', 'Let's move on reading!', etc. DO NOT INCLUDE YOUR QUESTION IN TRANSITION],
         "question": [The new question.]
-        "end": [true/false]
+        "end": [whether it is the last question: true/false]
     }}
 If the conversation comes to an end and you are providing the last feedback without asking a new question to the child, leave the 'question' part empty and the 'end' part should be 'true'.
 Please note that when the texts of 'feedback', 'explanation', 'transition' and 'question' are combined, it should become a smooth reply.
@@ -417,6 +418,7 @@ def label_conv_gen(id, title, user, isLibrary):
     first_conv_dict = {
          "greeting": "Hi there! Let's talk about something fun in " + title + '!',     
          "question": label[id]['question']
+         # "question": label[id]['question'][0]
     }
     messages = [
         {"role": "system", "content": input},
@@ -444,11 +446,13 @@ def gen_first_conv_label(title):
     for sec_id, val in label.items():
         label_conv_gen(str(sec_id), title, 'user', True)
 
-# gen_first_conv_label('Oscar and the CRICKET')
+# gen_first_conv_label('Amara and the Bats')
 
 def chat_gen(id, title, user, response):
     messages = load_json("./static/files/" + user + "/" + title + "/conversation/get_conv_sec_" + id + ".json")
     chatHistory = load_json('./static/files/' + user + '/' + title + '/' + title + '_knowledge_dict.json')
+    if response == '':
+        response = "[No Response]"
     messages.append(
         {"role": "user", "content": response}
     )
@@ -462,6 +466,11 @@ def chat_gen(id, title, user, response):
     feedback_dict['explanation'] = capitalize_sentences(feedback_dict['explanation'])
     feedback_dict['transition'] = capitalize_sentences(feedback_dict['transition'])
     feedback_dict['question'] = capitalize_sentences(feedback_dict['question'])
+    if not ("end" in feedback_dict):
+        if feedback_dict['question'] != '':
+            feedback_dict['end'] = False
+        else:
+            feedback_dict['end'] = True
 
     messages.append(
         {"role": "assistant", "content": feedback}
@@ -539,7 +548,7 @@ def save_label_knowledge(user, title, isLibrary):
         save_json('./static/files/' + user + '/' + title + '/' + title + '_knowledge_dict.json', gpt_data)
 
 
-# save_label_knowledge('user', 'Oscar and the CRICKET', True)
+# save_label_knowledge('user', 'Amara and the Bats', True)
 
 def get_book_discipline(user, title, isLibrary):
     if (isLibrary):

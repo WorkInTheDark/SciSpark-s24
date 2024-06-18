@@ -215,8 +215,11 @@ def label_gen(title):
         gen_result[int(sec_id)]['keyword'] = val['keyword']
         gen_result[int(sec_id)]['knowledge'] = val['DCI']
         gen_result[int(sec_id)]['use'] = 1
-        gen_result[int(sec_id)]['explanation'] = evaluate(prompting_explanation(val['keyword'], val['DCI']))
-        audio_gen(gen_result[int(sec_id)]['explanation'], './static/files/books/' + title + '/exp_audio/exp_audio' + sec_id + '.mp3')
+        if val['keyword'] != "":
+            gen_result[int(sec_id)]['explanation'] = evaluate(prompting_explanation(val['keyword'], val['DCI']))
+            audio_gen(gen_result[int(sec_id)]['explanation'], './static/files/books/' + title + '/exp_audio/exp_audio' + sec_id + '.mp3')
+        else:
+            gen_result[int(sec_id)]['explanation'] = ""
         match_flag = False
         for i, sen in enumerate(gen_result[int(sec_id)]['section']):
             if (match_flag):
@@ -243,6 +246,6 @@ def gen_sent_split():
 
 # gen_sent_split()
 
-# label_gen('Oscar and the CRICKET')
+# label_gen('Amara and the Bats')
 # save_split_sentence("Water Cycle Earth Science")
 # keyword_matching('user', "Water Cycle Earth Science", True)

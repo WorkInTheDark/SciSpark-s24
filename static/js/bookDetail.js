@@ -172,9 +172,12 @@ function genKG(){
                                 <p2 id="Exp">${gptData[(currentImageIndex-1).toString()].explanation}</p2>
                             </div>
                          </div>`;
-
+    
     if(document.querySelector('.Knowledge') == null){
         container.appendChild(knowledge);
+    }
+    else{
+        console.log(document.querySelector('.Knowledge').innerHTML)
     }
     /* const audioPlayer = document.getElementById('audioPlayer');
     audioPlayer.addEventListener('ended', function () {
@@ -379,19 +382,31 @@ function NextPage() {
     isKeyWord = false;
     isReview = false;
     if (document.querySelector('.Knowledge') != null){
-        save_knowledge_state(true, 'false');
+        save_knowledge_state(true, 'false', () => {
+            currentImageIndex = currentImageIndex < totalPages ? currentImageIndex + 1 : currentImageIndex;
+            showImage();
+        })
+        /* save_knowledge_state(true, 'false'); */
     }
-    currentImageIndex = currentImageIndex < totalPages ? currentImageIndex + 1: currentImageIndex;
-    showImage();
+    else {
+        currentImageIndex = currentImageIndex < totalPages ? currentImageIndex + 1 : currentImageIndex;
+        showImage();
+    }
 }
 
 function PrevPage() {
     isReview = false;
     if (document.querySelector('.Knowledge') != null){
-        save_knowledge_state(true, 'false');
+        save_knowledge_state(true, 'false', () => {
+            currentImageIndex = currentImageIndex < totalPages ? currentImageIndex + 1 : currentImageIndex;
+            showImage();
+        })
+        /* save_knowledge_state(true, 'false'); */
     }
-    currentImageIndex = currentImageIndex > 1 ? currentImageIndex - 1 : currentImageIndex;
-    showImage();
+    else {
+        currentImageIndex = currentImageIndex < totalPages ? currentImageIndex + 1 : currentImageIndex;
+        showImage();
+    }
 }
 
 /* Empty page does not have an audio file */
@@ -477,10 +492,11 @@ function submitText() {
     const textInput = document.getElementById('textInput');
     document.getElementById('loading').style.display = 'block';
     document.getElementById('overlay').style.display = 'block';
-    if(textInput.value == ''){
+    /* if(textInput.value == ''){
         alert("You need to answer this question first!");
         return;
-    }
+    } */
+    console.log(textInput.value)
     fetch('/api/chat', {
         method: 'POST',
         headers: {
@@ -608,7 +624,7 @@ function changeStar(imgId, qId){
     save_knowledge_state(false, 'false');
 }
 
-function save_knowledge_state(isClear, isEnd){
+function save_knowledge_state(isClear, isEnd, callback){
     fetch('/api/continue', {
         method: 'POST',
         headers: {
@@ -627,7 +643,9 @@ function save_knowledge_state(isClear, isEnd){
     .then(data => {
         if (isClear){
             document.querySelector('.container').removeChild(document.querySelector('.Knowledge'));
+            console.log('kg cleared')
         }
+        callback();
     })
     .catch(error => console.error('Error:', error));
 }

@@ -90,7 +90,7 @@ def story_audio(user, title, isLibrary):
 
 # save_sen_split('user', "How to Catch the Wind", True)
 
-
+story_audio("user", "Amara and the Bats", True)
 
 def validate_text(title):
     text1 = load_json('./static/files/books/' + title + '/' + title + '_sentence_split.json')

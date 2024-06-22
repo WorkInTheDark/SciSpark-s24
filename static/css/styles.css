@@ -7,7 +7,8 @@
 }
 
 @font-face {
-    font-family: "Inter Tight", sans-serif;;
+    font-family: "Inter Tight", sans-serif;
+    ;
     font-style: normal;
     font-weight: 200;
     src: url(https://fonts.gstatic.com/s/inter/v13/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuDyfAZJhiJ-Ek-_EeAmM.woff2) format('woff2');
@@ -20,65 +21,65 @@
     font-weight: 800;
     src: url(https://fonts.gstatic.com/s/abhayalibre/v17/e3tmeuGtX-Co5MNzeAOqinEQYUnXgPRE4r80.woff2) format('woff2');
     unicode-range: U+0964-0965, U+0D81-0DF4, U+1CF2, U+200C-200D, U+25CC, U+111E1-111F4;
-  }
+}
 
 
-  
+
 .open-sans-light {
-font-family: "Open Sans", sans-serif;
-font-optical-sizing: auto;
-font-weight: 300;
-font-style: normal;
-font-variation-settings:
-    "wdth" 100;
+    font-family: "Open Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+    font-variation-settings:
+        "wdth" 100;
 }
 
 .open-sans-regular {
-font-family: "Open Sans", sans-serif;
-font-optical-sizing: auto;
-font-weight: 400;
-font-style: normal;
-font-variation-settings:
-    "wdth" 100;
+    font-family: "Open Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-variation-settings:
+        "wdth" 100;
 }
 
 .open-sans-medium {
-font-family: "Open Sans", sans-serif;
-font-optical-sizing: auto;
-font-weight: 500;
-font-style: normal;
-font-variation-settings:
-    "wdth" 100;
+    font-family: "Open Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+    font-variation-settings:
+        "wdth" 100;
 }
 
-.source-serif-4-light{
-font-family: "Source Serif 4", serif;
-font-optical-sizing: auto;
-font-weight: 300;
-font-style: normal;
-}
-  
-.source-serif-4-regular{
-font-family: "Source Serif 4", serif;
-font-optical-sizing: auto;
-font-weight: 400;
-font-style: normal;
+.source-serif-4-light {
+    font-family: "Source Serif 4", serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
 }
 
-.source-serif-4-medium{
-font-family: "Source Serif 4", serif;
-font-optical-sizing: auto;
-font-weight: 500;
-font-style: normal;
+.source-serif-4-regular {
+    font-family: "Source Serif 4", serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.source-serif-4-medium {
+    font-family: "Source Serif 4", serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
 }
 
 .lora-regular> {
-font-family: "Lora", serif;
-font-optical-sizing: auto;
-font-weight: 400;
-font-style: normal;
+    font-family: "Lora", serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
 }
- 
+
 body {
     position: absolute;
     top: 0;
@@ -89,7 +90,7 @@ body {
     padding: 0px;
     background-color: #FDF6E6;
 }
-  
+
 .BackGround {
     background-color: #FDF6E6;
     min-height: 100vh;
@@ -100,7 +101,7 @@ body {
     align-items: center;
 }
 
-#LoginBlock{
+#LoginBlock {
     margin: auto;
     margin-top: 10%;
     height: 50%;
@@ -112,7 +113,7 @@ body {
     position: absolute;
 }
 
-#LoginImg{
+#LoginImg {
     left: 0;
     padding-top: 10%;
     margin-bottom: 3%;
@@ -120,19 +121,19 @@ body {
     width: 50%;
 }
 
-#LoginInfo{
+#LoginInfo {
     float: left;
     padding-top: 8%;
     width: 40%;
     text-align: center;
 }
 
-h2#Login{
+h2#Login {
     margin-bottom: 15%;
     font-size: 40px;
 }
 
-.LoginInput{
+.LoginInput {
     border-radius: 20px;
     margin-bottom: 10%;
     padding-left: 5%;
@@ -143,7 +144,7 @@ h2#Login{
     border-width: 0;
 }
 
-#LoginButton{
+#LoginButton {
     border-radius: 20px;
     margin-bottom: 10%;
     width: 100%;
@@ -154,12 +155,12 @@ h2#Login{
     border-width: 0;
 }
 
-#LoginButton:hover{
+#LoginButton:hover {
     background-color: #0b66b6;
     cursor: pointer;
 }
 
-.TopBar{
+.TopBar {
     /*position: absolute;*/
     top: 0;
     height: 70px;
@@ -167,7 +168,7 @@ h2#Login{
     background-color: #1B83DE;
 }
 
-#TopIcon{
+#TopIcon {
     float: left;
     height: 60px;
     padding-top: 5px;
@@ -175,7 +176,7 @@ h2#Login{
     padding-right: 100px;
 }
 
-.TopContent{
+.TopContent {
     float: left;
     position: relative;
     /* font-family: 'Baloo'; */
@@ -195,21 +196,21 @@ h2#Login{
     cursor: pointer;
 }
 
-#Profile{
+#Profile {
     float: right;
     position: relative;
     /* font-family: 'Baloo'; */
     font-family: "Source Serif 4", serif;
-font-optical-sizing: auto;
-font-weight: 400;
-font-style: normal;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
     color: #FDF6E6;
     font-size: 25px;
     height: 100%;
     padding-top: 20px;
 }
 
-#userIcon{
+#userIcon {
     float: right;
     height: 60px;
     padding-top: 5px;
@@ -225,7 +226,7 @@ font-style: normal;
     width: 100%;
 }
 
-.BookList{
+.BookList {
     width: 100%;
     height: 50%;
     margin-left: 70px;
@@ -233,37 +234,37 @@ font-style: normal;
     padding-bottom: 10px;
 }
 
-.BookList p1{
+.BookList p1 {
     color: #214556;
     font-size: 30px;
     /* font-family: 'Baloo'; */
     font-family: "Open Sans", sans-serif;
-font-optical-sizing: auto;
-font-weight: 400;
-font-style: normal;
-font-variation-settings:
-    "wdth" 100;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-variation-settings:
+        "wdth" 100;
 }
 
-.BookList p2{
+.BookList p2 {
     margin-left: 10px;
     font-size: 35px;
     /* font-family: 'Baloo'; */
     font-family: "Open Sans", sans-serif;
-font-optical-sizing: auto;
-font-weight: 500;
-font-style: normal;
-font-variation-settings:
-    "wdth" 100;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+    font-variation-settings:
+        "wdth" 100;
 }
 
-#Shelf{
+#Shelf {
     height: 100%;
     width: 100%;
     margin-top: 20px;
 }
 
-.FeaturedBook{
+.FeaturedBook {
     width: fit-content;
     background-color: white;
     border-width: 3px;
@@ -274,76 +275,82 @@ font-variation-settings:
     margin-bottom: 30px;
 }
 
-.FeaturedBook img{
+.FeaturedBook img {
     height: 300px;
 }
 
-.tagSpace{
+.tagSpace {
     width: 350px;
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap; 
+    flex-wrap: wrap;
     margin-top: 8px;
     font-size: 16px;
     margin-bottom: 10px;
 }
 
-.tag0,.tag1,.tag2,.tag3,.tag4,.tag5,.tag6{
+.tag0,
+.tag1,
+.tag2,
+.tag3,
+.tag4,
+.tag5,
+.tag6 {
     margin: 5px;
     padding: 5px;
     border-radius: 5px;
     /* font-family: "Abhaya Libre", serif; */
     font-family: "Source Serif 4", serif;
-font-optical-sizing: auto;
-font-weight: 400;
-font-style: normal;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
     color: #001E34;
 }
 
-.Shelf{
+.Shelf {
     display: flex;
     flex-wrap: wrap;
 }
 
-.tag1{
+.tag1 {
     background-color: #ffb289;
 }
 
-.tag2{
+.tag2 {
     background-color: #c0ffab;
 }
 
-.tag3{
+.tag3 {
     background-color: #89c8ff;
 }
 
-.tag4{
+.tag4 {
     background-color: #acb4d3;
 }
 
-.tag5{
+.tag5 {
     background-color: #acd3c1;
 }
 
-.tag6{
+.tag6 {
     background-color: #d3acaf;
 }
 
-.BookTitle{
+.BookTitle {
     font-family: "Source Serif 4", serif;
-font-optical-sizing: auto;
-font-weight: 500;
-font-style: normal;
-font-size: 50px;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 50px;
 }
 
-.ShelfBookTitle{
-font-family: "Open Sans", sans-serif;
-font-optical-sizing: auto;
-font-weight: 500;
-font-style: normal;
-font-variation-settings:
-    "wdth" 100;
+.ShelfBookTitle {
+    font-family: "Open Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+    font-variation-settings:
+        "wdth" 100;
 
 
     width: 100%;
@@ -353,12 +360,12 @@ font-variation-settings:
     font-weight: 600;
 }
 
-.ShelfBookTitle:hover{
+.ShelfBookTitle:hover {
     cursor: pointer;
     color: 'inherit'
 }
 
-.ShelfReadBook{
+.ShelfReadBook {
     padding-left: 10px;
     /* font-family: 'Inter Tight'; */
     font-family: "Source Serif 4", serif;
@@ -367,7 +374,7 @@ font-variation-settings:
     font-style: normal;
     padding-bottom: 10px;
     color: #1B83DE;
-    
+
 }
 
 a {
@@ -375,11 +382,11 @@ a {
     color: #001E34;
 }
 
-.fa-solid.fa-forward{
+.fa-solid.fa-forward {
     color: #1B83DE;
 }
 
-.FeaturedBook p5{
+.FeaturedBook p5 {
     font-size: 15px;
     font-family: 'Inter';
 }
@@ -395,22 +402,22 @@ a {
     float: left;
 }
 
-.fa-solid.fa-swatchbook{
+.fa-solid.fa-swatchbook {
     color: #fb8e28;
     padding-right: 10px;
 }
 
-#BookInst{
+#BookInst {
     color: #B1AFAA;
     /* font-family: "ABeeZee", sans-serif;
     font-style: italic; */
 
     font-family: "Open Sans", sans-serif;
-font-optical-sizing: auto;
-font-weight: 400;
-font-style: normal;
-font-variation-settings:
-    "wdth" 100;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-variation-settings:
+        "wdth" 100;
     font-size: 20px;
 }
 
@@ -419,8 +426,8 @@ font-variation-settings:
     font-weight: 800;
     font-style: normal;
 }
-  
-.BookPage{
+
+.BookPage {
     max-width: 95%;
     height: 500px;
     position: relative;
@@ -429,20 +436,20 @@ font-variation-settings:
     margin-top: 30px;
 }
 
-.Page{
+.Page {
     max-width: 100%;
     position: relative;
     text-align: center;
 }
 
-#BookImg{
+#BookImg {
     max-width: 100%;
     border-radius: 6%;
     position: relative;
     box-shadow: 2px 2px 6px #888888;
 }
 
-.fa-solid.fa-caret-right{
+.fa-solid.fa-caret-right {
     position: absolute;
     top: 50%;
     right: -45px;
@@ -454,7 +461,7 @@ font-variation-settings:
     font-size: 80px;
 }
 
-.fa-solid.fa-caret-left{
+.fa-solid.fa-caret-left {
     position: absolute;
     top: 50%;
     left: -45px;
@@ -466,7 +473,7 @@ font-variation-settings:
     font-size: 80px;
 }
 
-#Caption{
+#Caption {
     max-width: 100%;
     position: relative;
     font-size: 20px;
@@ -474,15 +481,15 @@ font-variation-settings:
 }
 
 
-.paragraph{
+.paragraph {
     /* font-family: 'Baloo 2'; */
     /* font-family: "Open Sans", sans-serif; */
     font-family: "Open Sans", sans-serif;
-font-optical-sizing: auto;
-font-weight: 400;
-font-style: italic;
-font-variation-settings:
-    "wdth" 100;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: italic;
+    font-variation-settings:
+        "wdth" 100;
 
     font-size: 20px;
     max-width: 100%;
@@ -532,13 +539,13 @@ font-variation-settings:
     border-radius: 10px;
 }
 
-#curPage{
+#curPage {
     margin-top: 10px;
     font-family: 'ABeeZee';
     font-size: 30px;
 }
 
-.Knowledge{
+.Knowledge {
 
     padding-top: 30px;
     width: 600px;
@@ -547,7 +554,7 @@ font-variation-settings:
     flex-direction: column;
 }
 
-.keyWord{
+.keyWord {
     position: relative;
     width: fit-content;
     height: fit-content;
@@ -568,8 +575,8 @@ font-variation-settings:
     overflow: hidden;
     transition: max-height 0.3s ease;
 }
-  
-.tail{
+
+.tail {
     position: absolute;
     width: 50px;
     height: 80px;
@@ -583,12 +590,12 @@ font-variation-settings:
     margin: 0;
     font-size: 30px;
 }
-  
+
 .expanded {
-    max-height: 500px; 
+    max-height: 500px;
 }
 
-#Word{
+#Word {
     /* font-family: 'Abhaya Libre'; */
     /* font-family: "Open Sans", sans-serif;
     font-optical-sizing: auto;
@@ -597,15 +604,15 @@ font-variation-settings:
     font-variation-settings:
         "wdth" 100; */
     font-family: "Source Serif 4", serif;
-font-optical-sizing: auto;
-font-weight: 400;
-font-style: normal;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
 
     color: #214556;
     font-size: 50px;
 }
 
-#Exp{
+#Exp {
     /* font-family: 'Abhaya Libre'; */
     font-family: "Open Sans", sans-serif;
     font-optical-sizing: auto;
@@ -618,7 +625,7 @@ font-style: normal;
     font-size: 20px;
 }
 
-.chatHistory{
+.chatHistory {
     position: relative;
     max-width: 600px;
     /* max-height: 300px; */
@@ -658,11 +665,11 @@ font-style: normal;
     margin-right: 15px;
 }
 
-.message-bubble.sys{
+.message-bubble.sys {
     color: #8c4e09;
 }
 
-.message-bubble.user{
+.message-bubble.user {
     color: #214556;
 }
 
@@ -679,7 +686,7 @@ font-style: normal;
     border-radius: 50%;
 }
 
-.chatBox{
+.chatBox-holder {
     position: relative;
     max-width: 600px;
     max-height: 535px;
@@ -695,23 +702,27 @@ font-style: normal;
     border-color: #7a8260e8;
     /* font-family: 'Baloo'; */
     font-family: "Open Sans", sans-serif;
-    overflow-y: scroll;
     background: #eef8ea5c;
 }
 
-.topContent{
+.chatBox {
+    height: 100%;
+    overflow-y: scroll;
+}
+
+.topContent {
     max-width: 600px;
     height: fit-content;
     display: flex;
 }
 
-#penguin{
+#penguin {
     float: left;
     width: 80px;
     height: fit-content;
 }
 
-#chatContent{
+#chatContent {
     font-family: "Open Sans", sans-serif;
     font-optical-sizing: auto;
     font-weight: 400;
@@ -723,24 +734,24 @@ font-style: normal;
     color: #214556;
 }
 
-#chatContent p1{
+#chatContent p1 {
     font-size: 20px;
     line-height: 23px;
     color: #2c5621;
 }
 
-#chatContent p2{
+#chatContent p2 {
     font-size: 20px;
     line-height: 23px;
 }
 
-#chatContent p3{
+#chatContent p3 {
     font-size: 20px;
     line-height: 23px;
     color: #8c4e09;
 }
 
-.inputBlock{
+.inputBlock {
     background-color: #d9d9d9a5;
     border-radius: 20px;
     /* display: flex; */
@@ -752,7 +763,7 @@ font-style: normal;
     margin-top: 10px;
 }
 
-#voiceInputBtn{
+#voiceInputBtn {
     margin: auto;
     margin-left: 10px;
     margin-right: 10px;
@@ -771,23 +782,23 @@ font-style: normal;
     align-items: center;
 }
 
-#voiceInputBtn:hover{
+#voiceInputBtn:hover {
     background-color: #c0eeddb2;
 }
 
-#voiceInputBtn img{
+#voiceInputBtn img {
     width: 30px;
     margin-right: 7px;
 }
 
-#loading{
+#loading {
     width: 130px;
     height: fit-content;
     display: none;
     position: absolute;
     margin: auto;
-    left: 40%;
-    top: 20%;
+    left: calc(50% - 75px);
+    top: calc(50% - 75px);
 }
 
 #overlay {
@@ -796,8 +807,12 @@ font-style: normal;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(128, 128, 128, 0.5); 
+    background-color: rgba(128, 128, 128, 0.5);
     display: none;
+    border-radius: 40px;
+    border-width: 3px;
+    border: solid;
+    border-color: transparent;
 }
 
 #textInput {
@@ -818,7 +833,7 @@ font-style: normal;
     visibility: hidden;
 }
 
-.submitBlock{
+.submitBlock {
     max-width: 600px;
     max-height: 100px;
     left: 0;
@@ -848,15 +863,15 @@ font-style: normal;
     /* font-weight: 800; */
 }
 
-#submitBtn span{
+#submitBtn span {
     cursor: pointer;
     display: inline-block;
     position: relative;
     transition: 0.5s;
 }
 
-#submitBtn span:after{
-    content: '\00bb';  
+#submitBtn span:after {
+    content: '\00bb';
     position: absolute;
     opacity: 0;
     top: 0;
@@ -873,13 +888,14 @@ font-style: normal;
     right: 0;
 }
 
-.starBlock{
+.starBlock {
     position: relative;
     display: inline-block;
     width: 140px;
 }
 
-.star,.prob{
+.star,
+.prob {
     width: 120px;
 }
 
@@ -894,17 +910,17 @@ font-style: normal;
     z-index: 100;
 }
 
-.knowledgeDetail p1{
+.knowledgeDetail p1 {
     /* font-family: 'Baloo'; */
     font-family: "Open Sans", sans-serif;
 }
 
-.knowledgeDetail p2{
+.knowledgeDetail p2 {
     font-family: 'Abhaya Libre';
     color: #214556;
 }
 
-.closeButton{
+.closeButton {
     z-index: 101;
     border: #fe9282;
     float: right;
@@ -914,12 +930,12 @@ font-style: normal;
     margin-top: 10px;
 }
 
-.closeButton:hover{
+.closeButton:hover {
     background-color: #fe9282;
     color: white;
 }
 
-#learned{
+#learned {
     z-index: 101;
     border: none;
     float: left;
@@ -931,11 +947,11 @@ font-style: normal;
     font-family: "Open Sans", sans-serif;
 }
 
-#learned:hover{
+#learned:hover {
     background-color: #f9e581;
 }
 
-#continueBlock{
+#continueBlock {
     max-width: 600px;
     max-height: 100px;
     left: 0;
@@ -959,7 +975,7 @@ font-style: normal;
     font-weight: 900;
 }
 
-#statBlock{
+#statBlock {
     top: 70px;
     height: 89%;
     width: 97%;
@@ -973,7 +989,7 @@ font-style: normal;
     display: flex;
 }
 
-#leftStat{
+#leftStat {
     padding-top: 30px;
     padding-left: 40px;
     width: 48%;
@@ -983,7 +999,7 @@ font-style: normal;
     float: left;
 }
 
-#rightStat{
+#rightStat {
     padding-top: 30px;
     padding-left: 40px;
     width: 48%;
@@ -993,7 +1009,7 @@ font-style: normal;
     float: right;
 }
 
-#dashTitle{
+#dashTitle {
     /* font-family: 'Baloo'; */
     font-family: "Open Sans", sans-serif;
     color: #214556;
@@ -1001,13 +1017,13 @@ font-style: normal;
     display: flex;
 }
 
-#dashIcon{
+#dashIcon {
     width: 79px;
     height: 79px;
     margin-right: 20px;
 }
 
-#nowReading{
+#nowReading {
     height: 15%;
     width: 90%;
     margin-top: 20px;
@@ -1020,13 +1036,13 @@ font-style: normal;
     display: flex;
 }
 
-#nowReading p1{
+#nowReading p1 {
     /* font-family: 'Baloo 2'; */
     font-family: "Open Sans", sans-serif;
     font-size: 30px;
 }
 
-#nowReading p2{
+#nowReading p2 {
     font-family: 'Abhaya Libre';
     font-size: 30px;
     margin-left: 10px;
@@ -1061,12 +1077,12 @@ font-style: normal;
     align-items: center;
 }
 
-.coverTitle img{
+.coverTitle img {
     max-height: 80px;
     display: flex;
     flex-direction: column;
 }
-    
+
 .coverTitle p1 {
     font-family: 'Abhaya Libre';
     font-size: 20px;
@@ -1074,24 +1090,24 @@ font-style: normal;
     width: 100%;
 }
 
-.header-cell{
+.header-cell {
     display: flex;
 }
 
-.conceptInst{
+.conceptInst {
     font-size: 20px;
     margin: auto;
     color: #214556;
 }
 
-#statTable{
+#statTable {
     max-width: 100%;
     max-height: 90%;
     overflow-y: scroll;
     padding: 2px;
 }
 
-.tableHeader{
+.tableHeader {
     display: flex;
     max-width: 100%;
     height: 120px;
@@ -1102,11 +1118,11 @@ font-style: normal;
     margin-top: -1px;
 }
 
-.progressCircle{
-    position:relative
+.progressCircle {
+    position: relative
 }
 
-.progressCircle p{
+.progressCircle p {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -1118,22 +1134,30 @@ font-style: normal;
 
 .progress-circle {
     fill: none;
-    stroke: #ddd; /* 圆环底色 */
-    stroke-width: 13; /* 圆环宽度 */
-    stroke-linecap: round; /* 圆环末端为圆角 */
+    stroke: #ddd;
+    /* 圆环底色 */
+    stroke-width: 13;
+    /* 圆环宽度 */
+    stroke-linecap: round;
+    /* 圆环末端为圆角 */
     width: 130px;
 }
-  
+
 .progress-bar {
     fill: none;
-    stroke: #007bff; /* 圆环进度条颜色 */
-    stroke-width: 13; /* 圆环宽度 */
-    stroke-linecap: round; /* 圆环末端为圆角 */
-    stroke-dasharray: 0, 1000; /* 圆环样式：第一个值为进度条长度，第二个值为圆环周长 */
-    transition: stroke-dasharray 0.5s; /* 进度条动画过渡 */
+    stroke: #007bff;
+    /* 圆环进度条颜色 */
+    stroke-width: 13;
+    /* 圆环宽度 */
+    stroke-linecap: round;
+    /* 圆环末端为圆角 */
+    stroke-dasharray: 0, 1000;
+    /* 圆环样式：第一个值为进度条长度，第二个值为圆环周长 */
+    transition: stroke-dasharray 0.5s;
+    /* 进度条动画过渡 */
 }
 
-.bookKg{
+.bookKg {
     display: flex;
     padding: 10px;
 }
@@ -1147,16 +1171,16 @@ font-style: normal;
     margin-right: 10px;
     margin-left: 0;
 }
-  
+
 .yellow-dot {
     background-color: rgb(240, 210, 62);
 }
-  
+
 .green-dot {
     background-color: green;
 }
 
-.bookKg p1{
+.bookKg p1 {
     font-size: 25px;
     line-height: 25px;
     position: relative;
@@ -1169,7 +1193,7 @@ font-style: normal;
     margin-right: 20px;
 }
 
-.bookKg p2{
+.bookKg p2 {
     font-size: 20px;
     line-height: 20px;
     /* font-family: 'Baloo 2'; */
@@ -1183,25 +1207,32 @@ font-style: normal;
     cursor: pointer;
     outline: none;
 }
-  
+
 .expand-btn::after {
     content: "";
     display: inline-block;
     width: 0;
     height: 0;
-    border-left: 5px solid transparent; /* 左侧透明边 */
-    border-right: 5px solid transparent; /* 右侧透明边 */
-    border-top: 8px solid #000; /* 上侧实线边，可以根据需要调整颜色和大小 */
-    margin-left: 5px; /* 调整箭头与文本之间的间距 */
-    vertical-align: middle; /* 确保箭头垂直居中 */
+    border-left: 5px solid transparent;
+    /* 左侧透明边 */
+    border-right: 5px solid transparent;
+    /* 右侧透明边 */
+    border-top: 8px solid #000;
+    /* 上侧实线边，可以根据需要调整颜色和大小 */
+    margin-left: 5px;
+    /* 调整箭头与文本之间的间距 */
+    vertical-align: middle;
+    /* 确保箭头垂直居中 */
 }
 
 .expand-btn.up::after {
-    border-top: none; /* 移除上侧边 */
-    border-bottom: 8px solid #000; /* 下侧实线边，形成箭头朝上效果 */
+    border-top: none;
+    /* 移除上侧边 */
+    border-bottom: 8px solid #000;
+    /* 下侧实线边，形成箭头朝上效果 */
 }
 
-#scienceStat{
+#scienceStat {
     max-height: 50%;
     width: 90%;
     margin-top: 30px;
@@ -1219,14 +1250,14 @@ font-style: normal;
     text-align: center;
 }
 
-.bookRec{
+.bookRec {
     border: solid;
     border-color: #d7bc88;
     margin-top: -1px;
     background: #fff9e6;
 }
 
-#recordStat{
+#recordStat {
     height: 25%;
     width: 90%;
     margin-top: 80px;
@@ -1235,23 +1266,24 @@ font-style: normal;
     display: flex;
 }
 
-#todayStat, #totalStat{
+#todayStat,
+#totalStat {
     width: 50%;
     display: flex;
     flex-direction: column;
 }
 
-.subStat{
+.subStat {
     display: flex;
 }
 
-.recordIcon{
+.recordIcon {
     width: 60px;
     height: 60px;
     margin-right: 20px;
 }
 
-.recordTitle p1{
+.recordTitle p1 {
     /* font-family: 'Baloo'; */
     font-family: "Open Sans", sans-serif;
     color: #7E7E7E;
@@ -1260,14 +1292,14 @@ font-style: normal;
     padding: 0;
 }
 
-.recordTitle p2{
+.recordTitle p2 {
     /* font-family: 'Baloo'; */
     font-family: "Open Sans", sans-serif;
     color: #000000;
     font-size: 60px;
 }
 
-.recordTitle p3{
+.recordTitle p3 {
     /* font-family: 'Baloo'; */
     font-family: "Open Sans", sans-serif;
     color: #CCCCCC;
@@ -1275,13 +1307,13 @@ font-style: normal;
 }
 
 
-#charts{
+#charts {
     max-width: 100%;
     max-height: 90%;
     overflow-y: scroll;
 }
 
-#weekStat{
+#weekStat {
     height: 47%;
     width: 90%;
     margin-top: 50px;
@@ -1300,14 +1332,14 @@ font-style: normal;
     align-items: center;
 }
 
-#barChart{
+#barChart {
     border: solid;
     border-radius: 20px;
     overflow: hidden;
     border-color: #EBD6BC;
 }
 
-.toUpload{
+.toUpload {
     height: 100%;
     width: fit-content;
     background-color: white;
@@ -1321,7 +1353,7 @@ font-style: normal;
     cursor: pointer;
 }
 
-.uploadBlock{
+.uploadBlock {
     top: 70px;
     height: 89%;
     width: 97%;
@@ -1341,39 +1373,40 @@ font-style: normal;
     padding-left: 30px;
 }
 
-.uploadStep p1{
+.uploadStep p1 {
     font-size: 40px;
 }
 
-.uploadStep p2{
+.uploadStep p2 {
     font-size: 30px;
     color: #214556;
 }
 
-.uploadStep p3{
+.uploadStep p3 {
     font-size: 35px;
     color: #6ac5ef;
 }
 
-.uploadStep p4{
+.uploadStep p4 {
     font-size: 45px;
     color: #563b21;
 }
 
-#workPlace{
+#workPlace {
     width: 100%;
     height: fit-content;
     margin-top: 50px;
     text-align: center;
 }
 
-#camera, #pageCamera{
+#camera,
+#pageCamera {
     height: 500px;
-    width:fit-content;
+    width: fit-content;
     margin: auto;
 }
 
-.uploadContent{
+.uploadContent {
     display: flex;
     flex-direction: column;
     text-align: center;
@@ -1382,19 +1415,20 @@ font-style: normal;
     margin: auto;
 }
 
-#camera-preview, #camera-preview-page{
+#camera-preview,
+#camera-preview-page {
     height: 500px;
-    width:fit-content;
+    width: fit-content;
     margin: auto;
 }
 
-#captured-image{
+#captured-image {
     height: 500px;
-    width:fit-content;
+    width: fit-content;
     margin: auto;
 }
 
-.capture-btn{
+.capture-btn {
     width: 300px;
     margin: auto;
     margin-top: 30px;
@@ -1407,15 +1441,15 @@ font-style: normal;
     color: #ffffff;
 }
 
-.cameraBtns{
+.cameraBtns {
     margin-top: 30px;
     width: 100%;
     flex-direction: row;
 }
 
-#retake-btn{
+#retake-btn {
     margin: auto;
-    margin-top: 20px; 
+    margin-top: 20px;
     border: none;
     right: 0;
     height: 50px;
@@ -1427,7 +1461,7 @@ font-style: normal;
     color: #765128c9;
 }
 
-.confirm-btn{
+.confirm-btn {
     margin-left: 60px;
     border: none;
     border-radius: 20px;
@@ -1441,7 +1475,7 @@ font-style: normal;
     color: #ffffff;
 }
 
-#uploadTitle{
+#uploadTitle {
     background-color: transparent;
     border: none;
     border-bottom: 1px solid black;
@@ -1453,7 +1487,7 @@ font-style: normal;
     width: 450px;
 }
 
-#ocrText{
+#ocrText {
     width: 800px;
     height: 100px;
     border: none;
@@ -1464,12 +1498,12 @@ font-style: normal;
     padding: 10px;
 }
 
-.modifyUpload{
+.modifyUpload {
     width: 100%;
     margin-top: 20px;
 }
 
-#prev-btn{
+#prev-btn {
     position: absolute;
     border: none;
     border-radius: 20px;
@@ -1485,7 +1519,7 @@ font-style: normal;
 }
 
 
-#save-btn{
+#save-btn {
     position: absolute;
     border: none;
     border-radius: 20px;
@@ -1500,7 +1534,7 @@ font-style: normal;
     bottom: 90px;
 }
 
-#end-upload-btn{
+#end-upload-btn {
     position: absolute;
     border: none;
     border-radius: 20px;
@@ -1520,7 +1554,7 @@ font-style: normal;
     height: fit-content;
 }
 
-#backtoCust{
+#backtoCust {
     position: absolute;
     border: none;
     border-radius: 20px;

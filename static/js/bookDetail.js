@@ -21,8 +21,8 @@ let sessionDuration = 0;
 let year;
 let month;
 let day;
-let isDataLoaded = false; 
-let isAudioEnded = false; 
+let isDataLoaded = false;
+let isAudioEnded = false;
 let isExpEnded = false;
 let isKnowledge = false;
 
@@ -32,14 +32,14 @@ function startSessionTimer() {
 
 function updateSessionDuration() {
     const currentTime = new Date().getTime();
-    sessionDuration = Math.floor( (currentTime - sessionStartTime) / 60000); // count time interval (minute)
+    sessionDuration = Math.floor((currentTime - sessionStartTime) / 60000); // count time interval (minute)
 }
 
-window.onload = function() {
+window.onload = function () {
     startSessionTimer();
 };
 
-function switchPage(add){
+function switchPage(add) {
     updateSessionDuration();
     fetch('/api/timer', {
         method: 'POST',
@@ -55,17 +55,17 @@ function switchPage(add){
             username: curUser
         }),
     })
-    .then(response => response.json())
-    .then(data => {
-    })
-    .catch((error) => {
-        console.error('Error update duration:', error);
-    });
+        .then(response => response.json())
+        .then(data => {
+        })
+        .catch((error) => {
+            console.error('Error update duration:', error);
+        });
     console.log("User session duration:", sessionDuration, "minutes");
     window.location.href = add;
 }
 
-function getUser(){
+function getUser() {
     fetch('/api/user', {
         method: 'POST',
         headers: {
@@ -73,110 +73,110 @@ function getUser(){
         },
         body: JSON.stringify({}),
     })
-    .then(response => response.json())
-    .then(data => {
-        curUser = data.username;
-        document.getElementById('Profile').innerHTML = data.username;
-        fetchGenData();
-    })
-    .catch((error) => {
-        console.error('Error get user information:', error);
-    });
+        .then(response => response.json())
+        .then(data => {
+            curUser = data.username;
+            document.getElementById('Profile').innerHTML = data.username;
+            fetchGenData();
+        })
+        .catch((error) => {
+            console.error('Error get user information:', error);
+        });
 }
 
-function fetchGenData(){
-    console.log({ 
+function fetchGenData() {
+    console.log({
         username: curUser,
-        title: bookTitle 
+        title: bookTitle
     });
     fetch('/api/gen', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ 
+        body: JSON.stringify({
             username: curUser,
-            title: bookTitle 
+            title: bookTitle
         }),
     })
-    .then(response => response.json())
-    .then(data => {
-        genData = data.generation;
-        gptData = data.answerProgress;
-        console.log(genData);
-        console.log(gptData);
-        totalPages = Object.keys(genData).length;
-        isDataGen = true;
-        if (isDataGen){
-            textAudio();
-            showImage();
-        }
-    })
-    .catch((error) => {
-        console.error('Error:', error);
-    });
+        .then(response => response.json())
+        .then(data => {
+            genData = data.generation;
+            gptData = data.answerProgress;
+            console.log(genData);
+            console.log(gptData);
+            totalPages = Object.keys(genData).length;
+            isDataGen = true;
+            if (isDataGen) {
+                textAudio();
+                showImage();
+            }
+        })
+        .catch((error) => {
+            console.error('Error:', error);
+        });
 }
 
-function render_caption(textData){
+function render_caption(textData) {
     let paragraph = document.createElement("div");
     const caption = document.getElementById('Caption');
     paragraph.className = "paragraph";
     paragraph.innerHTML = "";
-    if(typeof textData === 'string'){
+    if (typeof textData === 'string') {
         paragraph.innerHTML += textData;
     }
-    else{
+    else {
         textData.forEach(function (e) {
-            if (e.keyword == 0){
+            if (e.keyword == 0) {
                 paragraph.innerHTML += `<div id="s${e.id}" class="sentence">${e.word}</div>`
             }
-            else{
+            else {
                 paragraph.innerHTML += `<div id="s${e.id}" class="sentence_key" >${e.word}</div>`
                 isKeyWord = true;
             }
         })
-        if (isKeyWord){
-            console.log(gptData[(currentImageIndex-1).toString()]);
-            console.log(currentSentence, sections[currentImageIndex-1].length)
-            if(!gptData[(currentImageIndex-1).toString()].answer){
+        if (isKeyWord) {
+            console.log(gptData[(currentImageIndex - 1).toString()]);
+            console.log(currentSentence, sections[currentImageIndex - 1].length)
+            if (!gptData[(currentImageIndex - 1).toString()].answer) {
                 // genConv();
-                if(!isKnowledge){
+                if (!isKnowledge) {
                     genKG();
                     isKnowledge = true;
                 }
-                if(currentSentence == sections[currentImageIndex-1].length - 1){
+                if (currentSentence == sections[currentImageIndex - 1].length - 1) {
                     genConv();
                 }
             }
-            else{
+            else {
                 review();
             }
         }
     }
-    if(caption.childNodes.length == 0){
+    if (caption.childNodes.length == 0) {
         caption.appendChild(paragraph);
     }
-    else{
+    else {
         caption.replaceChild(paragraph, caption.childNodes[0]);
     }
 }
 
-function genKG(){
+function genKG() {
     const container = document.querySelector('.container');
     let knowledge = document.createElement("div");
     knowledge.className = 'Knowledge';
     knowledge.innerHTML = `<div class="keyWord">
                             <div id="bubble">
-                                <p1 id="Word">${gptData[(currentImageIndex-1).toString()].keyword}</p1>
+                                <p1 id="Word">${gptData[(currentImageIndex - 1).toString()].keyword}</p1>
                                 </br>
-                                <p2 id="Exp">${gptData[(currentImageIndex-1).toString()].explanation}</p2>
+                                <p2 id="Exp">${gptData[(currentImageIndex - 1).toString()].explanation}</p2>
                             </div>
                          </div>`;
-    
-    if(document.querySelector('.Knowledge') == null){
+
+    if (document.querySelector('.Knowledge') == null) {
         container.appendChild(knowledge);
     }
-    else{
+    else {
         console.log(document.querySelector('.Knowledge').innerHTML)
     }
     /* const audioPlayer = document.getElementById('audioPlayer');
@@ -196,7 +196,7 @@ function genKG(){
 
 }
 
-function genConv(){
+function genConv() {
     const container = document.querySelector('.container');
     const knowledge = document.querySelector('.Knowledge');
     /* let knowledge = document.createElement("div");
@@ -236,24 +236,28 @@ function genConv(){
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ 
+        body: JSON.stringify({
             username: curUser,
-            id: (currentImageIndex-1).toString(),
+            id: (currentImageIndex - 1).toString(),
             title: bookTitle
-         })
+        })
     })
-    .then(response => response.json())
-    .then(data => {
-        console.log(data);
-    
-        /*let chatHistory = document.createElement("div");
-        chatHistory.className = 'chatHistory';
-        chatHistory.innerHTML = ``;
-        knowledge.appendChild(chatHistory)*/
+        .then(response => response.json())
+        .then(data => {
+            console.log(data);
 
-        let chatBox = document.createElement("div");
-        chatBox.className = 'chatBox';
-        chatBox.innerHTML = `
+            /*let chatHistory = document.createElement("div");
+            chatHistory.className = 'chatHistory';
+            chatHistory.innerHTML = ``;
+            knowledge.appendChild(chatHistory)*/
+            let chatBoxHolder = document.createElement("div");
+            chatBoxHolder.className = 'chatBox-holder';
+            knowledge.appendChild(chatBoxHolder);
+
+
+            let chatBox = document.createElement("div");
+            chatBox.className = 'chatBox';
+            chatBox.innerHTML = `
                             <div class="chatHistory">
                             </div>
                             <div class="topContent">
@@ -261,12 +265,12 @@ function genConv(){
                                 <div id='chatContent'>
                                 </div>
                             </div>`
-        knowledge.appendChild(chatBox);
-        document.getElementById('chatContent').innerHTML = `<p1>${data.greeting} </p1></br><p3>${data.question}</p3>`;
-        if(document.querySelector('.inputBlock')){
-            return;
-        }
-        document.querySelector('.chatBox').innerHTML += `<div class='inputBlock'>
+            chatBoxHolder.appendChild(chatBox);
+            document.getElementById('chatContent').innerHTML = `<p1>${data.greeting} </p1></br><p3>${data.question}</p3>`;
+            if (document.querySelector('.inputBlock')) {
+                return;
+            }
+            document.querySelector('.chatBox').innerHTML += `<div class='inputBlock'>
                                 <div id="overlay"></div>
                                 <textarea id="textInput"></textarea>
                                 <button id="voiceInputBtn" onclick="toggleVoiceInput()">
@@ -274,30 +278,30 @@ function genConv(){
                                 </button>
                                 <img id='loading' src="../static/files/imgs/loading.gif">
                               </div>`
-        /* knowledge.innerHTML += `<div class='submitBlock'>
-                              <button id="submitBtn" onclick="submitText()">
-                                <span>Send my answer!</span>
-                              </button>
-                          </div>`; */
-        /*console.log(chatBox.innerHTML);*/
-        /*document.getElementById('response').innerHTML = data.response;*/
-        isDataLoaded = true;
-        const audioPlayer = document.getElementById('audioPlayer');
-        audioPlayer.addEventListener('ended', function () {
-            isAudioEnded = true;
-            if (isDataLoaded && !isExpPlayed) { 
-                playExpAudio();
-                const ExpAudioPlayer = document.getElementById('expAudioPlayer');
-                ExpAudioPlayer.addEventListener('ended', function () {
-                    isExpEnded = true;
-                    playConvAudio();
-                    isExpPlayed = true;
-                });
-            }
-            audioPlayer.removeEventListener('ended', arguments.callee);
-        });
-    })
-    .catch(error => console.error('Error:', error));
+            /* knowledge.innerHTML += `<div class='submitBlock'>
+                                  <button id="submitBtn" onclick="submitText()">
+                                    <span>Send my answer!</span>
+                                  </button>
+                              </div>`; */
+            /*console.log(chatBox.innerHTML);*/
+            /*document.getElementById('response').innerHTML = data.response;*/
+            isDataLoaded = true;
+            const audioPlayer = document.getElementById('audioPlayer');
+            audioPlayer.addEventListener('ended', function () {
+                isAudioEnded = true;
+                if (isDataLoaded && !isExpPlayed) {
+                    playExpAudio();
+                    const ExpAudioPlayer = document.getElementById('expAudioPlayer');
+                    ExpAudioPlayer.addEventListener('ended', function () {
+                        isExpEnded = true;
+                        playConvAudio();
+                        isExpPlayed = true;
+                    });
+                }
+                audioPlayer.removeEventListener('ended', arguments.callee);
+            });
+        })
+        .catch(error => console.error('Error:', error));
 }
 
 function playAudio(audioSrc) {
@@ -307,36 +311,36 @@ function playAudio(audioSrc) {
     audioPlayer.addEventListener('ended', playNextSentence);
 }
 
-function playConvAudio(){
-    if (isKeyWord && !isReview){
-        convAudioPlayer.src = `../static/files/${curUser}/${bookTitle}/conv_audio/sec_${(currentImageIndex-1)}_q_1.mp3`;
+function playConvAudio() {
+    if (isKeyWord && !isReview) {
+        convAudioPlayer.src = `../static/files/${curUser}/${bookTitle}/conv_audio/sec_${(currentImageIndex - 1)}_q_1.mp3`;
         convAudioPlayer.play();
     }
 }
 
-function playExpAudio(){
-    if (isKeyWord && !isReview){
+function playExpAudio() {
+    if (isKeyWord && !isReview) {
         isExpEnded = false;
-        expAudioPlayer.src = `../static/files/books/${bookTitle}/exp_audio/exp_audio${(currentImageIndex-1)}.mp3`;
+        expAudioPlayer.src = `../static/files/books/${bookTitle}/exp_audio/exp_audio${(currentImageIndex - 1)}.mp3`;
         expAudioPlayer.play();
     }
 }
 
 function playNextSentence() {
-    if (currentSentence < sections[currentImageIndex-1].length -1) {
+    if (currentSentence < sections[currentImageIndex - 1].length - 1) {
         currentSentence++;
-        playAudio(sections[currentImageIndex-1][currentSentence].audio);
-        render_caption(sections[currentImageIndex-1][currentSentence].text);
+        playAudio(sections[currentImageIndex - 1][currentSentence].audio);
+        render_caption(sections[currentImageIndex - 1][currentSentence].text);
     }
-    if (currentSentence == sections[currentImageIndex-1].length && isKeyWord && !isReview){
+    if (currentSentence == sections[currentImageIndex - 1].length && isKeyWord && !isReview) {
         /* playExpAudio(); */
         audioPlayer.removeEventListener('ended', playNextSentence);
-    } 
-        /* add another factor: this is the first time to answer */
-        /*if (isKeyWord && !isReview){
-            /* If in Review mode, do not play */
-            /*playConvAudio();*/
-        /*}*/
+    }
+    /* add another factor: this is the first time to answer */
+    /*if (isKeyWord && !isReview){
+        /* If in Review mode, do not play */
+    /*playConvAudio();*/
+    /*}*/
 }
 
 function updateProgressBar() {
@@ -348,16 +352,16 @@ function updateProgressBar() {
 
 function showImage() {
     /* isKeyWord = false; */
-    if (currentImageIndex == 1){
+    if (currentImageIndex == 1) {
         document.getElementById('prevPageIcon').style.visibility = 'hidden';
     }
-    else{
+    else {
         document.getElementById('prevPageIcon').style.visibility = 'visible';
     }
-    if (currentImageIndex == totalPages){
+    if (currentImageIndex == totalPages) {
         document.getElementById('nextPageIcon').style.visibility = 'hidden';
     }
-    else{
+    else {
         document.getElementById('nextPageIcon').style.visibility = 'visible';
     }
     isKnowledge = false;
@@ -374,14 +378,14 @@ function showImage() {
     convAudioPlayer.pause();
     convAudioPlayer.currentTime = 0;
 
-    playAudio(sections[currentImageIndex-1][currentSentence].audio);
-    render_caption(sections[currentImageIndex-1][currentSentence].text);
+    playAudio(sections[currentImageIndex - 1][currentSentence].audio);
+    render_caption(sections[currentImageIndex - 1][currentSentence].text);
 }
 
 function NextPage() {
     isKeyWord = false;
     isReview = false;
-    if (document.querySelector('.Knowledge') != null){
+    if (document.querySelector('.Knowledge') != null) {
         save_knowledge_state(true, 'false', () => {
             currentImageIndex = currentImageIndex < totalPages ? currentImageIndex + 1 : currentImageIndex;
             showImage();
@@ -396,7 +400,7 @@ function NextPage() {
 
 function PrevPage() {
     isReview = false;
-    if (document.querySelector('.Knowledge') != null){
+    if (document.querySelector('.Knowledge') != null) {
         save_knowledge_state(true, 'false', () => {
             currentImageIndex = currentImageIndex < totalPages ? currentImageIndex + 1 : currentImageIndex;
             showImage();
@@ -410,13 +414,13 @@ function PrevPage() {
 }
 
 /* Empty page does not have an audio file */
-function textAudio(){
+function textAudio() {
     sections = [];
     let i = 0;
-    for (let key in genData){
+    for (let key in genData) {
         var sentences = [];
         let j = 0;
-        for (let sen in genData[key]['section']){
+        for (let sen in genData[key]['section']) {
             sentences.push({
                 "text": genData[key]['section'][sen],
                 "audio": `../static/files/books/${bookTitle}/audio/p${i}sec${j}.mp3`
@@ -451,7 +455,7 @@ function toggleVoiceInput() {
             recognition = new webkitSpeechRecognition();
             recognition.lang = 'en-US';
 
-            recognition.onresult = function(event) {
+            recognition.onresult = function (event) {
                 const result = event.results[0][0].transcript;
                 textInput.value = result;
                 textInput.removeAttribute('readonly');
@@ -472,19 +476,19 @@ function startVoiceInput() {
     submitBtn.style.visibility = 'visible';
     voiceInputBtn.innerHTML = `<img src='../static/files/imgs/voiceInput.png'>Speaking...`;
     if ('webkitSpeechRecognition' in window) {
-      const recognition = new webkitSpeechRecognition();
-      recognition.lang = 'en-US';
+        const recognition = new webkitSpeechRecognition();
+        recognition.lang = 'en-US';
 
-      recognition.onresult = function(event) {
-        const result = event.results[0][0].transcript;
-        textInput.value = result;
-        textInput.removeAttribute('readonly');
-        voiceInputBtn.innerHTML = `<img src='../static/files/imgs/voiceInput.png'>Answer here!`;
-      };
+        recognition.onresult = function (event) {
+            const result = event.results[0][0].transcript;
+            textInput.value = result;
+            textInput.removeAttribute('readonly');
+            voiceInputBtn.innerHTML = `<img src='../static/files/imgs/voiceInput.png'>Answer here!`;
+        };
 
-      recognition.start();
+        recognition.start();
     } else {
-      alert('Sorry, your browser does not support speech recognition!');
+        alert('Sorry, your browser does not support speech recognition!');
     }
 }
 
@@ -502,52 +506,52 @@ function submitText() {
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ 
+        body: JSON.stringify({
             username: curUser,
-            id: (currentImageIndex-1).toString(),
+            id: (currentImageIndex - 1).toString(),
             title: bookTitle,
             response: textInput.value,
-         })
+        })
     })
-    .then(response => response.json())
-    .then(data => {
-        document.getElementById('loading').style.display = 'none';
-        document.getElementById('overlay').style.display = 'none';
-        gptData[(currentImageIndex-1).toString()].answer = true;
-        console.log(data);
-        response_dict = data.response_dict;
-        curQA = data.QA_pair;
-        const convAudioPlayer = document.getElementById('convAudioPlayer');
-        convAudioPlayer.src = `../static/files/${curUser}/${bookTitle}/conv_audio/sec_${(currentImageIndex-1)}_q_${response_dict.q_id}.mp3`;
-        convAudioPlayer.play();
-        document.getElementById('textInput').value = '';
-        /* addStar(data); */
-        if(response_dict.end.toString().toLowerCase() == 'true'){
-            document.getElementById('chatContent').innerHTML = `<p1>${response_dict.feedback} </p1><p2>${response_dict.explanation} </p2><p2>${response_dict.transition} </p2>`;
-            document.querySelector('.inputBlock').remove();
-            /* document.querySelector('.submitBlock').remove(); */
-            document.querySelector('.Knowledge').innerHTML += `<div id='continueBlock'>
+        .then(response => response.json())
+        .then(data => {
+            document.getElementById('loading').style.display = 'none';
+            document.getElementById('overlay').style.display = 'none';
+            gptData[(currentImageIndex - 1).toString()].answer = true;
+            console.log(data);
+            response_dict = data.response_dict;
+            curQA = data.QA_pair;
+            const convAudioPlayer = document.getElementById('convAudioPlayer');
+            convAudioPlayer.src = `../static/files/${curUser}/${bookTitle}/conv_audio/sec_${(currentImageIndex - 1)}_q_${response_dict.q_id}.mp3`;
+            convAudioPlayer.play();
+            document.getElementById('textInput').value = '';
+            /* addStar(data); */
+            if (response_dict.end.toString().toLowerCase() == 'true') {
+                document.getElementById('chatContent').innerHTML = `<p1>${response_dict.feedback} </p1><p2>${response_dict.explanation} </p2><p2>${response_dict.transition} </p2>`;
+                document.querySelector('.inputBlock').remove();
+                /* document.querySelector('.submitBlock').remove(); */
+                document.querySelector('.Knowledge').innerHTML += `<div id='continueBlock'>
                                         <button id="continue" onclick="continueRead()">Continue reading!</button>
                                     </div>`;
-        }
-        else{
-            document.getElementById('chatContent').innerHTML = `<p1>${response_dict.feedback} </p1><p2>${response_dict.explanation} </p2><p2>${response_dict.transition} </p2></br><p3>${response_dict.question} </p3>`;
-        }
-        updateChatHistory(response_dict, textInput.value);
-        save_knowledge_state(false, response_dict.end);
-    })
-    .catch(error => console.error('Error:', error));
+            }
+            else {
+                document.getElementById('chatContent').innerHTML = `<p1>${response_dict.feedback} </p1><p2>${response_dict.explanation} </p2><p2>${response_dict.transition} </p2></br><p3>${response_dict.question} </p3>`;
+            }
+            updateChatHistory(response_dict, textInput.value);
+            save_knowledge_state(false, response_dict.end);
+        })
+        .catch(error => console.error('Error:', error));
 }
 
-function updateChatHistory(gptRes){
+function updateChatHistory(gptRes) {
     /* 1. add the new QA in history
     2. record the answer (correct./incorrect), update dashboard
     3. If incorrect, show expanation and check*/
     var bg_color = '';
-    if(gptRes.judgement == 'correct'){
+    if (gptRes.judgement == 'correct') {
         bg_color = '#eaf9e6';
     }
-    else if(gptRes.judgement == 'incorrect') {
+    else if (gptRes.judgement == 'incorrect') {
         bg_color = '#f4d6d2';
     }
     const history = document.querySelector('.chatHistory');
@@ -576,18 +580,18 @@ function updateChatHistory(gptRes){
     document.querySelector('.chatBox').scrollTop = history.scrollHeight;
 }
 
-function showQABubble(qId){
+function showQABubble(qId) {
     const history = document.querySelector('.chatHistory');
     document.getElementById(`QAbubble_${qId}`).style.zIndex = history.children.length + 1;
 }
 
-function retainZIndex(zIndex, qId){
+function retainZIndex(zIndex, qId) {
     document.getElementById(`QAbubble_${qId}`).style.zIndex = zIndex;
 }
 
-function addStar(response){
+function addStar(response) {
     const history = document.querySelector('.chatHistory');
-    if(response.judgement == 'correct'){
+    if (response.judgement == 'correct') {
         history.innerHTML += `<div class='starBlock'>
                                 <img class='star' id="img${response.q_id}" onclick='showKnowledge(kd${response.q_id})' src='../static/files/imgs/star${response.q_id}.png'>
                                 <div class="knowledgeDetail" id="kd${response.q_id}">
@@ -597,7 +601,7 @@ function addStar(response){
                                 </div>
                             </div>`;
     }
-    else{
+    else {
         history.innerHTML += `<div class='starBlock'>
                                 <img class='prob' id="img${response.q_id}" onclick='showKnowledge(kd${response.q_id})' src='../static/files/imgs/question.png'>
                                 <div class="knowledgeDetail" id="kd${response.q_id}">
@@ -610,55 +614,55 @@ function addStar(response){
     }
 }
 
-function showKnowledge(kdId){
+function showKnowledge(kdId) {
     kdId.style.display = 'block';
 }
 
-function hideKnowledge(kdId){
+function hideKnowledge(kdId) {
     kdId.style.display = 'none';
 }
 
-function changeStar(imgId, qId){
+function changeStar(imgId, qId) {
     imgId.src = `../static/files/imgs/star${qId}.png`;
     document.getElementById('learned').remove();
     save_knowledge_state(false, 'false');
 }
 
-function save_knowledge_state(isClear, isEnd, callback){
+function save_knowledge_state(isClear, isEnd, callback) {
     fetch('/api/continue', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ 
+        body: JSON.stringify({
             username: curUser,
-            id: currentImageIndex-1,
+            id: currentImageIndex - 1,
             title: bookTitle,
             html: document.querySelector('.Knowledge').innerHTML,
             dash_stat_flag: isClear,
             end_flag: isEnd
-         })
+        })
     })
-    .then(response => response.json())
-    .then(data => {
-        if (isClear){
-            document.querySelector('.container').removeChild(document.querySelector('.Knowledge'));
-            console.log('kg cleared')
-        }
-        callback();
-    })
-    .catch(error => console.error('Error:', error));
+        .then(response => response.json())
+        .then(data => {
+            if (isClear) {
+                document.querySelector('.container').removeChild(document.querySelector('.Knowledge'));
+                console.log('kg cleared')
+            }
+            callback();
+        })
+        .catch(error => console.error('Error:', error));
 }
 
-function continueRead(){
-    gptData[(currentImageIndex-1).toString()].answer = true;
+function continueRead() {
+    gptData[(currentImageIndex - 1).toString()].answer = true;
     save_knowledge_state(true, 'false');
 
     audioPlayer.addEventListener('ended', playNextSentence);
     isKeyWord = false;
 }
 
-function review(){
+function review() {
     console.log('review previous progress');
     isReview = false;
     fetch('/api/review', {
@@ -666,30 +670,30 @@ function review(){
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ 
+        body: JSON.stringify({
             username: curUser,
-            id: currentImageIndex-1,
+            id: currentImageIndex - 1,
             title: bookTitle
-         })
+        })
     })
-    .then(response => response.json())
-    .then(data => {
-        if(data == 'knowledge not saved'){
-            console.log('knowledge not saved');
-            genConv();
-        }
-        else{
-            let knowledge = document.createElement("div");
-            knowledge.className = 'Knowledge';
-            knowledge.innerHTML = data;
-            const container = document.querySelector('.container');
-            if(container.children.length == 1){
-                container.appendChild(knowledge);
+        .then(response => response.json())
+        .then(data => {
+            if (data == 'knowledge not saved') {
+                console.log('knowledge not saved');
+                genConv();
             }
-            isReview = true;
-        }
-    })
-    .catch(error => console.error('Error:', error));
+            else {
+                let knowledge = document.createElement("div");
+                knowledge.className = 'Knowledge';
+                knowledge.innerHTML = data;
+                const container = document.querySelector('.container');
+                if (container.children.length == 1) {
+                    container.appendChild(knowledge);
+                }
+                isReview = true;
+            }
+        })
+        .catch(error => console.error('Error:', error));
 }
 
 fetchGenData();
